@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.function.BinaryOperator;
 
 public class D {
-    static String preString = "[SHAMIR]:";
+    static String preString = "[PEDERSON]:";
     static StringBuffer log = new StringBuffer();
     public static BigInteger SLAY(BigInteger[] yi, int[] xi){
         BigInteger[][] matrix = new BigInteger[yi.length][yi.length + 1];

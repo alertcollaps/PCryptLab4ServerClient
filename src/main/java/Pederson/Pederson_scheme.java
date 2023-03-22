@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Pederson_scheme extends Shamir_scheme {
     protected BigInteger Q;
-    protected String preString = "[Feldman_scheme]:";
+    protected String preString = "[Pederson_scheme]:";
     private BigInteger g;
     private BigInteger h;
     protected BigInteger[] siGi;
@@ -70,18 +70,17 @@ public class Pederson_scheme extends Shamir_scheme {
         SecureRandom rnd = new SecureRandom();
         int sizeA = sizeP / 8;
         byte[] temp = new byte[sizeA - 2];
-        while (Arrays.equals(temp, new byte[sizeA - 2])){
-            rnd.nextBytes(temp);
+
+        g = new BigInteger("3");
+        while (g.modPow(P.subtract(BigInteger.valueOf(1)).divide(Q), P).compareTo(Q) != -1){
+            g = g.add(BigInteger.valueOf(1));
         }
-
-
-        g = new BigInteger(temp).abs().mod(Q);
         g = g.modPow(P.subtract(BigInteger.valueOf(1)).divide(Q), P);
         rnd.nextBytes(temp);
         while (Arrays.equals(temp, new byte[sizeA - 2])){
             rnd.nextBytes(temp);
         }
-        h = new BigInteger(temp).abs().mod(P);
+        h = new BigInteger(temp).abs().mod(Q);
         return g;
     }
 

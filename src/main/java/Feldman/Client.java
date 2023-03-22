@@ -53,7 +53,7 @@ public class Client {
     }
 
     public void setYi(BigInteger yi, BigInteger zi) {
-        if (!zi.equals(g.modPow(yi, P))){
+        if (!zi.equals(ziMust)){
             agree = false;
             log.append(preString + "Failed yi. Check is False!!!" + "\n");
             return;

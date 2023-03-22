@@ -91,10 +91,9 @@ public class D {
         int n = 5;
         Client[] clients = new Client[n];
         Pederson_scheme pederson_scheme = new Pederson_scheme(t);
-        pederson_scheme.chooseAi();
-        log.append(preString + "Shamir secret key:" + pederson_scheme.getK() + "\n");
+        log.append(preString + "Pederson secret key:" + pederson_scheme.getK() + "\n");
         BigInteger P = pederson_scheme.getP();
-        log.append(preString + "Shamir P:" + pederson_scheme.getP() + "\n");
+        log.append(preString + "Pederson P:" + pederson_scheme.getP() + "\n");
         int[] xi = pederson_scheme.initialiseClients(n);
         for (int i = 0; i < n; i++){ //Заполнение клиентов
             int xInd = xi[i];

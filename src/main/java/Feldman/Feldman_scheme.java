@@ -48,12 +48,12 @@ public class Feldman_scheme extends Shamir_scheme {
     public BigInteger generateG(){
         SecureRandom rnd = new SecureRandom();
         int sizeA = sizeP / 8;
-        byte[] temp = new byte[sizeA - 2];
-        while (Arrays.equals(temp, new byte[sizeA - 2])){
-            rnd.nextBytes(temp);
-        }
 
-        g = new BigInteger(temp).abs().mod(Q);
+
+        g = new BigInteger("3");
+        while (g.modPow(P.subtract(BigInteger.valueOf(1)).divide(Q), P).compareTo(Q) != -1){
+            g = g.add(BigInteger.valueOf(1));
+        }
         g = g.modPow(P.subtract(BigInteger.valueOf(1)).divide(Q), P);
         return g;
     }

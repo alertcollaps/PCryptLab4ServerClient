@@ -94,7 +94,6 @@ public class D {
         int n = 5;
         Client[] clients = new Client[n];
         Feldman_scheme feldman_scheme = new Feldman_scheme(t);
-        feldman_scheme.chooseAi();
         log.append(preString + "Shamir secret key:" + feldman_scheme.getK() + "\n");
         BigInteger P = feldman_scheme.getP();
         log.append(preString + "Shamir P:" + feldman_scheme.getP() + "\n");
